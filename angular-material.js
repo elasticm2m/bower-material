@@ -18565,6 +18565,11 @@ MdChipsCtrl.prototype.onInputFocus = function () {
 
 MdChipsCtrl.prototype.onInputBlur = function () {
   this.inputHasFocus = false;
+  var chipBuffer = this.getChipBuffer();
+  if (chipBuffer != "") { // REQUIRED, OTHERWISE YOU'D GET A BLANK CHIP
+    this.appendChip(chipBuffer);
+    this.resetChipBuffer();
+  }
 };
 
 /**
